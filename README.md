@@ -1,5 +1,6 @@
 # wp-terraform
 
+You can see the Architecture diagram by clicking on Untitled Diagram.
 Just Clone the repository.
 EXPORT the ACCESS and SECRET key in local Env.
 Go to the cloned directory
