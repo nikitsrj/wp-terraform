@@ -1,0 +1,5 @@
+[app_servers]
+SERVER1_IP
+SERVER2_IP 
+[wordpress]
+SERVER1_IP

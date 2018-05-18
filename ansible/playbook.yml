@@ -1,0 +1,20 @@
+---
+
+- hosts: app_servers
+  sudo: yes
+  vars:
+      filesystemid: FSID
+  roles:
+    - dependencies
+
+- hosts: wordpress
+  sudo: yes
+  vars:
+      db_host: DBHOST
+  roles:
+    - wordpress
+
+- hosts: app_servers
+  sudo: yes
+  roles:
+    - configurations

@@ -1,0 +1,31 @@
+---
+# tasks file for dependencies
+
+- name: Update the server
+  yum: name=* state=present
+
+- name: install other packages for application
+  yum: name={{ item }} state=present
+  with_items:
+       - httpd24
+       - php70
+       - mysql56-server
+       - php70-mysqlnd
+       - amazon-efs-utils
+- name: start httpd service
+  service: name=httpd state=started
+
+- name: start mysqld service
+  service: name=mysqld state=started
+
+- name: start httpd service
+  service: name=httpd enabled=yes
+
+- name: start mysqld service
+  service: name=mysqld enabled=yes
+
+- name: Add ec2-user to apache group
+  user: name=ec2-user group=apache
+
+- name: mount EFS at /var/www/html
+  command: sudo mount -t efs {{ filesystemid }}:/ /var/www/html/

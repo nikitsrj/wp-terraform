@@ -1,0 +1,26 @@
+---
+# tasks file for wordpress
+
+- name: Downloading wordpress
+  command: wget https://wordpress.org/latest.tar.gz 
+
+- name: Unarchive tar file
+  unarchive: src=/home/ec2-user/latest.tar.gz dest=/home/ec2-user remote_src=yes
+
+- name: Copy wp-config-sample.php to wp-config.php
+  copy: src=/home/ec2-user/wordpress/wp-config-sample.php dest=/home/ec2-user/wordpress/wp-config.php remote_src=yes
+
+- name: modifying db entities
+  command: sudo sed -i 's/database_name_here/wpdb/g'  /home/ec2-user/wordpress/wp-config.php
+
+- name: modifying db entities
+  command: sudo sed -i 's/username_here/wpadmin/g'  /home/ec2-user/wordpress/wp-config.php
+
+- name: modifying db entities
+  command: sudo sed -i 's/password_here/wpadmin123/g'  /home/ec2-user/wordpress/wp-config.php
+
+- name: modifying db entities
+  command: sudo sed -i 's/localhost/{{ db_host }}/g'  /home/ec2-user/wordpress/wp-config.php
+
+- name: Copying wordpress to efs
+  shell: sudo mv -f /home/ec2-user/wordpress/* /var/www/html

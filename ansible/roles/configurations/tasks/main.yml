@@ -1,0 +1,17 @@
+---
+# tasks file for configurations
+
+- name: Modify apache configurations
+  command: sudo sed -i "151s/None/All/" /etc/httpd/conf/httpd.conf
+
+- name: Changing owner of /var/www
+  file: path=/var/www owner=apache group=apache recurse=yes state=directory
+
+- name: changing mode of /var/www
+  file: path=/var/www mode=2775 state=directory
+
+- name: Changing directory level mode
+  shell: find /var/www -type d -exec sudo chmod 2775 {} \;
+
+- name: restart the httpd service
+  service: name=httpd state=restarted
