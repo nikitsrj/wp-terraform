@@ -2,7 +2,7 @@
 
 Architecture Diagram
 
-![Alt text](Untitled Diagram (2).jpg)
+![Alt text](acrhictecture.jpg)
 
 Just Clone the repository.
 EXPORT the ACCESS and SECRET key in local Env.
