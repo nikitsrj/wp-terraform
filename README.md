@@ -13,6 +13,8 @@ Go to the cloned directory
 
 Hit below command.
 
+chmod 400 nikkey
+
 terraform init
 
 terraform apply
