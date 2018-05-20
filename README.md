@@ -13,7 +13,7 @@ Go to the cloned directory
 
 Hit below command.
 
-chmod 400 nikkey
+chmod 400 ansible/nikkey
 
 terraform init
 
