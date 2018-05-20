@@ -13,6 +13,8 @@ Go to the cloned directory
 
 Hit below command.
 
+terraform init
+
 terraform apply
 
 Post that you will get one elb dns. Hit that after a min of completion and you will get one wordpress website.
